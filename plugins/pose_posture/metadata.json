@@ -1,0 +1,11 @@
+{
+  "plugin_code": "pose_posture",
+  "name": "pose_posture",
+  "description": "Analiza posturas corporales humanas basadas en keypoints (standing, sitting, kneeling, lying, on_all_fours).",
+  "tags": [],
+  "icon": "mdi-human",
+  "input_types": [
+    "pose"
+  ],
+  "author": "NeuralVISION"
+}

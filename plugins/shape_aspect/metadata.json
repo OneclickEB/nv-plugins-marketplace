@@ -1,0 +1,11 @@
+{
+  "plugin_code": "shape_aspect",
+  "name": "shape_aspect",
+  "description": "Calcula relación alto/ancho",
+  "tags": [],
+  "icon": "mdi-eye-check",
+  "input_types": [
+    "detection"
+  ],
+  "author": "NeuralVISION"
+}

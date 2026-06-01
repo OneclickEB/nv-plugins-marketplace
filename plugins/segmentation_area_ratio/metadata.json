@@ -1,0 +1,11 @@
+{
+  "plugin_code": "segmentation_area_ratio",
+  "name": "segmentation_area_ratio",
+  "description": "Calcula el porcentaje de área por segmento y el agregado por clase en cada frame usando las máscaras de segmentación.",
+  "tags": [],
+  "icon": "mdi-shape",
+  "input_types": [
+    "segmentation"
+  ],
+  "author": "NeuralVISION"
+}

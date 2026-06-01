@@ -1,0 +1,11 @@
+{
+  "plugin_code": "count_classes",
+  "name": "count_classes",
+  "description": "Cuenta la cantidad de detecciones por clase en cada frame",
+  "tags": [],
+  "icon": "mdi-eye-check",
+  "input_types": [
+    "detection"
+  ],
+  "author": "NeuralVISION"
+}

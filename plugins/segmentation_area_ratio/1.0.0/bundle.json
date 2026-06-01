@@ -1,0 +1,17 @@
+{
+  "nv_plugin_bundle_v1": true,
+  "data": {
+    "plugin_code": "segmentation_area_ratio",
+    "name": "segmentation_area_ratio",
+    "description": "Calcula el porcentaje de área por segmento y el agregado por clase en cada frame usando las máscaras de segmentación.",
+    "enabled": true,
+    "instances_count": 1,
+    "scope": "frame",
+    "input_type": "segmentation",
+    "params": {
+      "round_digits": 2
+    },
+    "source_code": "#!/usr/bin/env python3\nfrom typing import Dict, Any, List\nfrom plugins.common.plugin_entry import nv_enrich_plugin\nfrom plugins.common.segmentation_utils import (\n    compute_area_ratio_per_segment,\n    aggregate_area_ratio_by_class,\n)\n\n@nv_enrich_plugin(\"segmentation_area_ratio\", result_scope=\"frame\")\ndef process_job(job: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"\n    Calcula:\n      1) Porcentaje de área (0-100) por segmento detectado → lista preservando el orden\n      2) Porcentaje de área (0-100) agregado por clase → dict\n\n    Entrada esperada en `job`:\n      - frame: dict (no se usa directamente, pero es requerido por el decorador)\n      - detections: List[ { detection_id, class_name, ... } ]\n      - segmentations: List[ { detection_id, mask_area (0-1 opcional), mask_data opcional } ]\n\n    Salida:\n      {\n        \"segments_area_percent\": [\n          {\"detection_id\": 123, \"class_name\": \"person\", \"percent\": 33.0},\n          {\"detection_id\": 124, \"class_name\": \"person\", \"percent\": 31.0},\n          {\"detection_id\": 125, \"class_name\": \"tv\",     \"percent\": 15.0}\n        ],\n        \"area_percent_by_class\": {\n          \"person\": 64.0,\n          \"tv\": 15.0\n        }\n      }\n    \"\"\"\n    frame = job.get(\"frame\")\n    detections: List[Dict[str, Any]] = job.get(\"detections\", []) or []\n    segmentations: List[Dict[str, Any]] = job.get(\"segmentations\", []) or []\n\n    # Si no hay frame o segmentaciones, no procesamos\n    if not frame or not segmentations:\n        return {}\n\n    # Mapa detection_id → class_name (preferimos el de la detección oficial)\n    det2class: Dict[Any, str] = {}\n    for d in detections:\n        det_id = d.get(\"detection_id\") or d.get(\"id\")\n        if det_id is not None:\n            det2class[det_id] = d.get(\"class_name\", \"unknown\")\n\n    # 1) % por segmento (preserva orden de segmentations)\n    segments_area_percent = compute_area_ratio_per_segment(segmentations, det2class, round_digits=2)\n\n    # 2) % agregado por clase (sumatoria de porcentajes por clase)\n    area_percent_by_class = aggregate_area_ratio_by_class(segments_area_percent, round_digits=2)\n\n    return {\n        \"segments_area_percent\": segments_area_percent,\n        \"area_percent_by_class\": area_percent_by_class,\n    }\n"
+  },
+  "assignments": []
+}

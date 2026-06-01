@@ -1,0 +1,15 @@
+{
+  "nv_plugin_bundle_v1": true,
+  "data": {
+    "plugin_code": "shape_aspect",
+    "name": "shape_aspect",
+    "description": "Calcula relación alto/ancho",
+    "enabled": true,
+    "instances_count": 1,
+    "scope": "detection",
+    "input_type": "detection",
+    "params": {},
+    "source_code": "#!/usr/bin/env python3\nfrom plugins.common.plugin_entry import nv_enrich_plugin\n\n@nv_enrich_plugin(\"shape_aspect\", result_scope=\"detection\")\ndef process_job(job: dict) -> dict:\n    \"\"\"\n    Calcula la relación de aspecto (alto/ancho) de una detección.\n    \"\"\"\n    detection = job.get(\"detection\")\n    if not detection:\n        return {\"aspect_ratio\": None}\n\n    w = detection[\"x1n\"] - detection[\"x0n\"]\n    h = detection[\"y1n\"] - detection[\"y0n\"]\n    if w <= 0 or h <= 0:\n        return {\"aspect_ratio\": None}\n\n    return {\n        \"descriptors\": {\n            \"aspect_ratio\": round(h / w, 3)\n        }\n    }\n"
+  },
+  "assignments": []
+}

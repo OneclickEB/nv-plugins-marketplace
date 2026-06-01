@@ -1,0 +1,11 @@
+{
+  "plugin_code": "color_basic",
+  "name": "color_basic",
+  "description": "Detecta color predominante de un objeto",
+  "tags": [],
+  "icon": "mdi-eye-check",
+  "input_types": [
+    "detection"
+  ],
+  "author": "NeuralVISION"
+}
