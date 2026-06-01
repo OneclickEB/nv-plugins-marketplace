@@ -1,6 +1,6 @@
 {
   "catalog_version": "1",
-  "updated_at": "2026-06-01T19:04:24Z",
+  "updated_at": "2026-06-01T19:14:47.470751Z",
   "plugins": [
     {
       "plugin_code": "color_basic",
@@ -16,8 +16,8 @@
         {
           "version": "1.0.10",
           "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/color_basic/1.0.10/bundle.json",
-          "sha256": "2b7fee974440e5275792d0c7cf45428a09a9246fe7d7ec81e88098274dace99e",
-          "min_nv_version": "2.0.0",
+          "sha256": "846c083cbe5b920fa6d68381cc99bad59d3151069cd584188949baa8b9dd2638",
+          "min_nv_version": "2.7.0",
           "release_notes": "",
           "released_at": "2026-06-01"
         },
@@ -36,12 +36,20 @@
       "name": "count_classes",
       "description": "Cuenta la cantidad de detecciones por clase en cada frame",
       "tags": [],
-      "icon": "mdi-eye-check",
+      "icon": "mdi-puzzle",
       "input_types": [
         "detection"
       ],
       "author": "NeuralVISION",
       "versions": [
+        {
+          "version": "1.0.1",
+          "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/count_classes/1.0.1/bundle.json",
+          "sha256": "2a6291c0dc0d0bfb24cc7ad3d44bbded7eaa33f9edffb66019f3ffb29234f13d",
+          "min_nv_version": "2.7.0",
+          "release_notes": "",
+          "released_at": "2026-06-01"
+        },
         {
           "version": "1.0.0",
           "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/count_classes/1.0.0/bundle.json",
