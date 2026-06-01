@@ -3,7 +3,7 @@
   "name": "color_basic",
   "description": "Detecta color predominante de un objeto",
   "tags": [],
-  "icon": "mdi-eye-check",
+  "icon": "mdi-puzzle",
   "input_types": [
     "detection"
   ],
