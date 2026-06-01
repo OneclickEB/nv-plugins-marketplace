@@ -1,0 +1,15 @@
+{
+  "nv_plugin_bundle_v1": true,
+  "data": {
+    "plugin_code": "count_classes",
+    "name": "count_classes",
+    "description": "Cuenta la cantidad de detecciones por clase en cada frame",
+    "enabled": true,
+    "instances_count": 1,
+    "scope": "frame",
+    "input_type": "detection",
+    "params": {},
+    "source_code": "#!/usr/bin/env python3\nfrom plugins.common.plugin_entry import nv_enrich_plugin\n#By Magm\n@nv_enrich_plugin(\"count_classes\", result_scope=\"frame\")\ndef process_job(job: dict) -> dict:\n    \"\"\"\n    Cuenta cuántas detecciones hay por clase en un frame.\n    \"\"\"\n    frame = job.get(\"frame\")\n    detections = job.get(\"detections\", [])\n\n    if not frame:\n        return {}\n\n    counts = {}\n    for det in detections:\n        cls = det.get(\"class_name\", \"unknown\")\n        counts[cls] = counts.get(cls, 0) + 1\n\n    return {\n        \"descriptors\": counts\n    }\n"
+  },
+  "assignments": []
+}
