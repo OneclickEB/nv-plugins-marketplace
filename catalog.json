@@ -1,0 +1,111 @@
+{
+  "catalog_version": "1",
+  "updated_at": "2026-06-01T12:42:08.429499Z",
+  "plugins": [
+    {
+      "plugin_code": "color_basic",
+      "name": "color_basic",
+      "description": "Detecta color predominante de un objeto",
+      "tags": [],
+      "icon": "mdi-eye-check",
+      "input_types": [
+        "detection"
+      ],
+      "author": "NeuralVISION",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/color_basic/1.0.0/bundle.json",
+          "sha256": "b4b5a8e83a24c41d67d44f961b6fe89e55036cda9575c7780c653262bb74c23b",
+          "min_nv_version": "2.7.0",
+          "release_notes": "",
+          "released_at": "2026-06-01"
+        }
+      ]
+    },
+    {
+      "plugin_code": "count_classes",
+      "name": "count_classes",
+      "description": "Cuenta la cantidad de detecciones por clase en cada frame",
+      "tags": [],
+      "icon": "mdi-eye-check",
+      "input_types": [
+        "detection"
+      ],
+      "author": "NeuralVISION",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/count_classes/1.0.0/bundle.json",
+          "sha256": "8e46f743e5f5e508a18c91f4fd1337e809776040b0040378c93f2da1ac7dc797",
+          "min_nv_version": "2.7.0",
+          "release_notes": "",
+          "released_at": "2026-06-01"
+        }
+      ]
+    },
+    {
+      "plugin_code": "pose_posture",
+      "name": "pose_posture",
+      "description": "Analiza posturas corporales humanas basadas en keypoints (standing, sitting, kneeling, lying, on_all_fours).",
+      "tags": [],
+      "icon": "mdi-human",
+      "input_types": [
+        "pose"
+      ],
+      "author": "NeuralVISION",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/pose_posture/1.0.0/bundle.json",
+          "sha256": "6eff739cd209846dd1835436ed308661466e975cc3132557d8e5d5439013e95b",
+          "min_nv_version": "2.7.0",
+          "release_notes": "",
+          "released_at": "2026-06-01"
+        }
+      ]
+    },
+    {
+      "plugin_code": "segmentation_area_ratio",
+      "name": "segmentation_area_ratio",
+      "description": "Calcula el porcentaje de área por segmento y el agregado por clase en cada frame usando las máscaras de segmentación.",
+      "tags": [],
+      "icon": "mdi-shape",
+      "input_types": [
+        "segmentation"
+      ],
+      "author": "NeuralVISION",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/segmentation_area_ratio/1.0.0/bundle.json",
+          "sha256": "3dd12e30d5127d884e0c30c73c07969c8de100eddbfb3dd8b6ffee33a4e9437a",
+          "min_nv_version": "2.7.0",
+          "release_notes": "",
+          "released_at": "2026-06-01"
+        }
+      ]
+    },
+    {
+      "plugin_code": "shape_aspect",
+      "name": "shape_aspect",
+      "description": "Calcula relación alto/ancho",
+      "tags": [],
+      "icon": "mdi-eye-check",
+      "input_types": [
+        "detection"
+      ],
+      "author": "NeuralVISION",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/shape_aspect/1.0.0/bundle.json",
+          "sha256": "e7e4b8beaabb8e74533a1f0a88d15e8c6074c4ddcbb4bcd67c7fd96dd0819c54",
+          "min_nv_version": "2.7.0",
+          "release_notes": "",
+          "released_at": "2026-06-01"
+        }
+      ]
+    }
+  ]
+}
