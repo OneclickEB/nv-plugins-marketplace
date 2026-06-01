@@ -1,18 +1,26 @@
 {
   "catalog_version": "1",
-  "updated_at": "2026-06-01T12:42:08.429499Z",
+  "updated_at": "2026-06-01T19:04:24Z",
   "plugins": [
     {
       "plugin_code": "color_basic",
       "name": "color_basic",
       "description": "Detecta color predominante de un objeto",
       "tags": [],
-      "icon": "mdi-eye-check",
+      "icon": "mdi-puzzle",
       "input_types": [
         "detection"
       ],
       "author": "NeuralVISION",
       "versions": [
+        {
+          "version": "1.0.10",
+          "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/color_basic/1.0.10/bundle.json",
+          "sha256": "2b7fee974440e5275792d0c7cf45428a09a9246fe7d7ec81e88098274dace99e",
+          "min_nv_version": "2.0.0",
+          "release_notes": "",
+          "released_at": "2026-06-01"
+        },
         {
           "version": "1.0.0",
           "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/color_basic/1.0.0/bundle.json",
