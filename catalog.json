@@ -1,6 +1,6 @@
 {
   "catalog_version": "1",
-  "updated_at": "2026-06-01T19:16:23Z",
+  "updated_at": "2026-06-01T19:24:28Z",
   "plugins": [
     {
       "plugin_code": "color_basic",
@@ -13,6 +13,14 @@
       ],
       "author": "NeuralVISION",
       "versions": [
+        {
+          "version": "1.0.11",
+          "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/color_basic/1.0.11/bundle.json",
+          "sha256": "d1d74988a2e52a230a8e952289bfc0aa5302a6cb081f92c91935754344490c2d",
+          "min_nv_version": "2.0.0",
+          "release_notes": "",
+          "released_at": "2026-06-01"
+        },
         {
           "version": "1.0.10",
           "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/color_basic/1.0.10/bundle.json",
