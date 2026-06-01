@@ -1,0 +1,15 @@
+{
+  "nv_plugin_bundle_v1": true,
+  "data": {
+    "plugin_code": "color_basic",
+    "name": "color_basic",
+    "description": "Detecta color predominante de un objeto",
+    "enabled": true,
+    "instances_count": 1,
+    "scope": "detection",
+    "input_type": "detection",
+    "params": {},
+    "source_code": "#!/usr/bin/env python3\nfrom plugins.common.plugin_entry import nv_enrich_plugin\nfrom plugins.common.plugin_utils import load_detection_crop\nfrom plugins.common.color_utils import dominant_color_name_from_crop\n# by Magm 2026\n@nv_enrich_plugin(\"color_basic\", result_scope=\"detection\")\ndef process_job(job):\n    detection = job.get(\"detection\")\n    frame = job.get(\"frame\")\n\n    if not detection or not frame:\n        return {\"color\": \"unknown\", \"confidence\": 0.0}\n\n    crop = load_detection_crop(frame, detection)\n    if crop is None:\n        return {\"color\": \"unknown\", \"confidence\": 0.0}\n\n    color_name, conf, extras = dominant_color_name_from_crop(crop)\n    return {\n        \"descriptors\": {\n            \"color\": color_name,\n            \"confidence\": conf\n        },\n        \"metadata\": {\n            \"extras\": extras\n        }\n    }\n"
+  },
+  "assignments": []
+}
