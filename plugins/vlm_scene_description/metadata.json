@@ -1,0 +1,11 @@
+{
+  "plugin_code": "vlm_scene_description",
+  "name": "vlm_scene_description",
+  "description": "Plugin de análisis visual basado en VLM/LLM para interpretar el contenido de frames y generar descripciones textuales estructuradas o narrativas. Puede adaptarse mediante prompts a distintos dominios, criterios operativos, reglas de observación e idiomas, y persistir sus resultados como contexto para búsquedas, alertas, auditorías, automatizaciones o resúmenes de sesión.\n\nEjemplo: un prompt puede solicitar describir actividad operativa, presencia y uso de EPP, estado de una zona, vehículos, riesgos visibles o cumplimiento de un procedimiento, sin afirmar información que no sea observable en la imagen.\nRequisitos para que alimente la narrativa\n- Plugin habilitado y asignado al/los dispositivos correctos.\n- Un proveedor VLM funcional y modelo con capacidad visual configurado.\n- Prompt orientado a hechos observables, sin inventar detalles.\n- Módulo Resumen de Sesión habilitado con un perfil que use las descripciones de frame.\n- El worker de resumen transforma las descripciones persistidas en narrativa. El plugin aporta evidencia por frame; no genera la narrativa final por sí solo.\nLa formulación deja claro el rol exacto del plugin y evita prometer que detecta, alerta o resume por cuenta propia.\n",
+  "tags": [],
+  "icon": "mdi-puzzle",
+  "input_types": [
+    "detection"
+  ],
+  "author": "NeuralVISION"
+}
