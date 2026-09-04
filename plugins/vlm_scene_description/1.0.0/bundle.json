@@ -1,0 +1,25 @@
+{
+  "nv_plugin_bundle_v1": true,
+  "data": {
+    "plugin_code": "vlm_scene_description",
+    "name": "vlm_scene_description",
+    "description": "Plugin de análisis visual basado en VLM/LLM para interpretar el contenido de frames y generar descripciones textuales estructuradas o narrativas. Puede adaptarse mediante prompts a distintos dominios, criterios operativos, reglas de observación e idiomas, y persistir sus resultados como contexto para búsquedas, alertas, auditorías, automatizaciones o resúmenes de sesión.\n\nEjemplo: un prompt puede solicitar describir actividad operativa, presencia y uso de EPP, estado de una zona, vehículos, riesgos visibles o cumplimiento de un procedimiento, sin afirmar información que no sea observable en la imagen.\nRequisitos para que alimente la narrativa\n- Plugin habilitado y asignado al/los dispositivos correctos.\n- Un proveedor VLM funcional y modelo con capacidad visual configurado.\n- Prompt orientado a hechos observables, sin inventar detalles.\n- Módulo Resumen de Sesión habilitado con un perfil que use las descripciones de frame.\n- El worker de resumen transforma las descripciones persistidas en narrativa. El plugin aporta evidencia por frame; no genera la narrativa final por sí solo.\nLa formulación deja claro el rol exacto del plugin y evita prometer que detecta, alerta o resume por cuenta propia.\n",
+    "enabled": false,
+    "instances_count": 1,
+    "scope": "frame",
+    "input_type": "detection",
+    "params": {
+      "prompt": "Describi brevemente la escena de forma factual: personas presentes y su vestimenta/EPP (casco, chaleco, guantes), vehiculos visibles y acciones en curso. No inventes detalles que no se vean claramente en la imagen.",
+      "languages": [
+        "es"
+      ]
+    },
+    "source_code": "#!/usr/bin/env python3\nfrom plugins.common.plugin_entry import nv_enrich_plugin\nfrom plugins.common.plugin_utils import get_numpy_frame\nimport vlm\n\nDEFAULT_PROMPT = (\n    \"Describi brevemente la escena de forma factual: personas presentes y su vestimenta/EPP \"\n    \"(casco, chaleco, guantes), vehiculos visibles y acciones en curso. No inventes detalles \"\n    \"que no se vean claramente en la imagen.\"\n)\n\n\n@nv_enrich_plugin(\"vlm_scene_description\", result_scope=\"frame\")\ndef process_job(job: dict) -> dict:\n    frame = job.get(\"frame\")\n    if not frame:\n        return {}\n\n    image = get_numpy_frame(frame)\n    if image is None:\n        return {\"descriptors\": {}}\n\n    params = job.get(\"params\") or {}\n    prompt = params.get(\"prompt\") or DEFAULT_PROMPT\n    languages = params.get(\"languages\") or [\"es\"]\n\n    frame_ts = frame.get(\"ts\")\n    frame_ts_iso = frame_ts.isoformat() if hasattr(frame_ts, \"isoformat\") else frame_ts\n\n    result = vlm.describe(\n        prompt,\n        image,\n        frame_id=frame.get(\"id\"),\n        frame_ts=frame_ts_iso,\n        languages=languages,\n    )\n\n    descriptions = result.get(\"descriptions\", {}) if isinstance(result, dict) else {}\n    return {\n        \"descriptors\": {\n            \"vlm_description\": descriptions.get(languages[0], \"\") if descriptions else \"\",\n        }\n    }\n"
+  },
+  "assignments": [
+    {
+      "target_type": "device",
+      "target_id": "org1grp3dev1"
+    }
+  ]
+}
