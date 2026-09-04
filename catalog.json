@@ -1,6 +1,6 @@
 {
   "catalog_version": "1",
-  "updated_at": "2026-06-01T19:45:10Z",
+  "updated_at": "2026-09-04T15:25:13Z",
   "plugins": [
     {
       "plugin_code": "color_basic",
@@ -144,6 +144,27 @@
           "min_nv_version": "2.7.0",
           "release_notes": "",
           "released_at": "2026-06-01"
+        }
+      ]
+    },
+    {
+      "plugin_code": "vlm_scene_description",
+      "name": "vlm_scene_description",
+      "description": "Plugin de análisis visual basado en VLM/LLM para interpretar el contenido de frames y generar descripciones textuales estructuradas o narrativas. Puede adaptarse mediante prompts a distintos dominios, criterios operativos, reglas de observación e idiomas, y persistir sus resultados como contexto para búsquedas, alertas, auditorías, automatizaciones o resúmenes de sesión.\n\nEjemplo: un prompt puede solicitar describir actividad operativa, presencia y uso de EPP, estado de una zona, vehículos, riesgos visibles o cumplimiento de un procedimiento, sin afirmar información que no sea observable en la imagen.\nRequisitos para que alimente la narrativa\n- Plugin habilitado y asignado al/los dispositivos correctos.\n- Un proveedor VLM funcional y modelo con capacidad visual configurado.\n- Prompt orientado a hechos observables, sin inventar detalles.\n- Módulo Resumen de Sesión habilitado con un perfil que use las descripciones de frame.\n- El worker de resumen transforma las descripciones persistidas en narrativa. El plugin aporta evidencia por frame; no genera la narrativa final por sí solo.\nLa formulación deja claro el rol exacto del plugin y evita prometer que detecta, alerta o resume por cuenta propia.\n",
+      "tags": [],
+      "icon": "mdi-puzzle",
+      "input_types": [
+        "detection"
+      ],
+      "author": "NeuralVISION",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/vlm_scene_description/1.0.0/bundle.json",
+          "sha256": "d8cd6b3e0e35425f45918e61f34fa19a78a6fa20a096f9a497da651068043ed5",
+          "min_nv_version": "2.0.0",
+          "release_notes": "",
+          "released_at": "2026-09-04"
         }
       ]
     }
