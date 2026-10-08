@@ -16,7 +16,7 @@
         {
           "version": "1.0.12",
           "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/color_basic/1.0.12/bundle.json",
-          "sha256": "e60d1568f70f0343a14883a284e22c6fe2f0aff7ab8dcfc82b0524234b0737e9",
+          "sha256": "55dede11d9a8f2c549467abe6ca4b8d8c36f6e13b36f04c35907cc55ee5fe325",
           "min_nv_version": "2.0.0",
           "release_notes": "",
           "released_at": "2026-06-01"
@@ -24,7 +24,7 @@
         {
           "version": "1.0.11",
           "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/color_basic/1.0.11/bundle.json",
-          "sha256": "d1d74988a2e52a230a8e952289bfc0aa5302a6cb081f92c91935754344490c2d",
+          "sha256": "3cd64566b999fed09463fb614f69c35033ca07084d39d221d184d1daa380e4df",
           "min_nv_version": "2.0.0",
           "release_notes": "",
           "released_at": "2026-06-01"
@@ -32,7 +32,7 @@
         {
           "version": "1.0.10",
           "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/color_basic/1.0.10/bundle.json",
-          "sha256": "2b7fee974440e5275792d0c7cf45428a09a9246fe7d7ec81e88098274dace99e",
+          "sha256": "846c083cbe5b920fa6d68381cc99bad59d3151069cd584188949baa8b9dd2638",
           "min_nv_version": "2.0.0",
           "release_notes": "",
           "released_at": "2026-06-01"
@@ -61,7 +61,7 @@
         {
           "version": "1.0.2",
           "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/count_classes/1.0.2/bundle.json",
-          "sha256": "621f21d31dde508f7bc890edf66886096bf36c5dbe4b2ac53dab563486be9ea8",
+          "sha256": "2a6291c0dc0d0bfb24cc7ad3d44bbded7eaa33f9edffb66019f3ffb29234f13d",
           "min_nv_version": "2.0.0",
           "release_notes": "",
           "released_at": "2026-06-01"
@@ -69,7 +69,7 @@
         {
           "version": "1.0.1",
           "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/count_classes/1.0.1/bundle.json",
-          "sha256": "621f21d31dde508f7bc890edf66886096bf36c5dbe4b2ac53dab563486be9ea8",
+          "sha256": "2a6291c0dc0d0bfb24cc7ad3d44bbded7eaa33f9edffb66019f3ffb29234f13d",
           "min_nv_version": "2.0.0",
           "release_notes": "",
           "released_at": "2026-06-01"
@@ -161,7 +161,7 @@
         {
           "version": "1.0.0",
           "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/vlm_scene_description/1.0.0/bundle.json",
-          "sha256": "d8cd6b3e0e35425f45918e61f34fa19a78a6fa20a096f9a497da651068043ed5",
+          "sha256": "2fca87ddb5129ae58d0dd2bfd3e9445438a7a8d2a9338455ff432bec69bd8e2b",
           "min_nv_version": "2.0.0",
           "release_notes": "",
           "released_at": "2026-09-04"
