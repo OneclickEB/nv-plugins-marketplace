@@ -1,0 +1,90 @@
+name: Marketplace catalog integrity
+
+on:
+  pull_request:
+    paths:
+      - "catalog.json"
+      - "plugins/**"
+      - "scripts/build_catalog.py"
+      - "scripts/test_build_catalog.py"
+      - "scripts/verify_catalog_integrity.py"
+      - "scripts/test_verify_catalog_integrity.py"
+      - ".github/workflows/catalog-integrity.yml"
+  push:
+    branches: [main]
+    paths:
+      - "catalog.json"
+      - "plugins/**"
+      - "scripts/build_catalog.py"
+      - "scripts/test_build_catalog.py"
+      - "scripts/verify_catalog_integrity.py"
+      - "scripts/test_verify_catalog_integrity.py"
+      - ".github/workflows/catalog-integrity.yml"
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate catalog against tracked bundles
+    if: github.event_name == 'pull_request' || github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run integrity tests
+        run: python -m unittest scripts.test_build_catalog scripts.test_verify_catalog_integrity
+      - name: Check generated catalog
+        run: |
+          python scripts/build_catalog.py
+          git diff --exit-code -- catalog.json
+      - name: Check catalog SHA-256 values
+        run: python scripts/verify_catalog_integrity.py --check
+
+  nightly-audit:
+    name: Audit published bundles and propose checksum fixes
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run integrity tests
+        run: python -m unittest scripts.test_build_catalog scripts.test_verify_catalog_integrity
+      - name: Audit and sync catalog SHA-256 values
+        run: python scripts/verify_catalog_integrity.py --sync-remote
+      - name: Check generated catalog
+        run: |
+          python scripts/build_catalog.py
+          git diff --exit-code -- catalog.json
+      - name: Verify the proposed catalog
+        run: python scripts/verify_catalog_integrity.py --check
+      - name: Open checksum correction PR
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: automation/catalog-checksum-sync
+          delete-branch: true
+          add-paths: catalog.json
+          commit-message: "fix(catalog): synchronize plugin bundle SHA-256 values"
+          title: "fix(catalog): synchronize plugin bundle SHA-256 values"
+          body: |
+            The scheduled integrity audit found stale catalog checksums for bundles whose
+            tracked source matches the published bytes. Review the updated SHA-256 fields
+            before merging. This PR does not change plugin source or versions and is never
+            auto-merged.
