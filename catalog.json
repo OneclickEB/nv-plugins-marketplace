@@ -1,6 +1,6 @@
 {
   "catalog_version": "1",
-  "updated_at": "2026-10-09T21:37:14Z",
+  "updated_at": "2026-10-09T21:45:05Z",
   "plugins": [
     {
       "plugin_code": "color_basic",
@@ -161,7 +161,7 @@
         {
           "version": "1.0.1",
           "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/vlm_scene_description/1.0.1/bundle.json",
-          "sha256": "a1b19a51201d94b36b5c9b90805114c414d0d2d388a81021deded2246cf1ba79",
+          "sha256": "834dd42d5692336b9dd8df5325639174e666e1d8a5f2f81817fb6518fe9fc39e",
           "min_nv_version": "2.0.0",
           "release_notes": "",
           "released_at": "2026-10-09"
