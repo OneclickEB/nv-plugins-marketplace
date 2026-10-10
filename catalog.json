@@ -1,6 +1,6 @@
 {
   "catalog_version": "1",
-  "updated_at": "2026-10-10T00:00:04Z",
+  "updated_at": "2026-10-10T00:51:30Z",
   "plugins": [
     {
       "plugin_code": "color_basic",
@@ -158,6 +158,14 @@
       ],
       "author": "NeuralVISION",
       "versions": [
+        {
+          "version": "1.0.2",
+          "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/vlm_scene_description/1.0.2/bundle.json",
+          "sha256": "25ab3be05cc499ce1b4f42d8ffaf6f283871493c8caa2a3984d4e98e4faac60a",
+          "min_nv_version": "2.0.0",
+          "release_notes": "",
+          "released_at": "2026-10-10"
+        },
         {
           "version": "1.0.1",
           "download_url": "https://raw.githubusercontent.com/OneclickEB/nv-plugins-marketplace/main/plugins/vlm_scene_description/1.0.1/bundle.json",
