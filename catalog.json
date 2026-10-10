@@ -1,6 +1,6 @@
 {
   "catalog_version": "1",
-  "updated_at": "2026-10-09T21:55:56Z",
+  "updated_at": "2026-10-10T00:00:04Z",
   "plugins": [
     {
       "plugin_code": "color_basic",
@@ -164,7 +164,7 @@
           "sha256": "c354c44df05aa0bd59b964127d3de041d29f0b16805eb530e09e2ba83ff23903",
           "min_nv_version": "2.0.0",
           "release_notes": "",
-          "released_at": "2026-10-09"
+          "released_at": "2026-10-10"
         },
         {
           "version": "1.0.0",
